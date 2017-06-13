@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+	<title>Filter Design</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="FilterDesign.js"></script>
+</head>
+
+<body>
+
+	<div class = "container">
+				<!-- first row with title and navbar select -->
+				<div class = "row">
+					<div class = "col-md-3"></div>
+					<div class = "col-md-6">Buttorworth Lowpass Filter</div>
+					<div class = "col-md-3"></div>
+				</div>
+
+
+				<!-- second row with Magnitude, Graph, and other material -->
+				<div class = "row">
+						<div class = "col-md-2"></div>
+
+						<div class = "col-md-6">
+								<!-- actual graph definition -->
+								<div id="mainbox" style="width:500px;height:500px"></div>
+						</div>
+						<div class = "col-md-4">
+							<div class = "container">
+								<div class = "row">
+									<div class = "col-md-1"></div>
+									<div class = "col-md-2">
+										<div class="dropdown">
+											<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter Type
+												<span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a href="#">FIR</a></li>
+												<li><a href="#">IIR</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class = "col-md-1"></div>
+								</div>
+								<div class = "row">
+									<div class = "col-md-1"></div>
+									<div class = "col-md-2">Design Method</div>
+									<div class = "col-md-1"></div>
+								</div>
+								<div class = "row">
+									<div class = "col-md-1"></div>
+									<div class = "col-md-2">
+										<div class="dropdown">
+											<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Window/Parks-McClellan
+												<span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a href="#">Window</a></li>
+												<li><a href="#">Parks-McClellan</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class = "col-md-1"></div>
+								</div>
+								<div class = "row">
+									<div class = "col-md-1"></div>
+									<div class = "col-md-2">
+										<div class="dropdown">
+											<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter Type
+												<span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a href="#" id="lowpass">Lowpass</a></li>
+												<li><a href="#" id="highpass">Highpass</a></li>
+												<li><a href="#" id="bandpass">Bandpass</a></li>
+												<li><a href="#" id="bandreject">Bandreject</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class = "col-md-1"></div>
+								</div>
+								<div class = "row">
+									<div class = "col-md-1">Fsamp</div>
+									<div class = "col-md-2">
+										<div class="form-group">
+											<input type="number" class="form-control" id="samp">
+										</div>
+									</div>
+									<div class = "col-md-1">Hz</div>
+								</div>
+								<div class = "row">
+									<div class = "col-md-1">Fcutoff</div>
+									<div class = "col-md-2">
+										<div class="form-group">
+											<input type="number" class="form-control" id="cutoff">
+										</div>
+									</div>
+									<div class = "col-md-1">Hz</div>
+								</div>
+							</div>
+						</div>
+
+				</div>
+	</div>
+
+
+
+</body>
+
+</html>
