@@ -18,12 +18,43 @@
 				<!-- first row with title and navbar select -->
 				<div class = "row">
 					<div class = "col-md-3"></div>
-					<div class = "col-md-6">Buttorworth Lowpass Filter</div>
+					<div class = "col-md-6">Filter Design</div>
 					<div class = "col-md-3"></div>
 				</div>
 
+				<!-- second row with navbar -->
+				<div class = "row">
+					<nav class="Filter Technique">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">Filter Design</a>
+							</div>
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#">Home</a></li>
+								<!-- FIR/IIR Dropdown -->
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">FIR/IIR
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li id><a href="#" id = "FIR">FIR</a></li>
+										<li><a href="#" id = "IIR">IIR</a></li>
+									</ul>
+								</li>
+								<li class="dropdown" id = "FIRopen">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window/Parks
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" id = "window">Window</a></li>
+										<li><a href="#" id = "parks">Parks-McClellan</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
 
-				<!-- second row with Magnitude, Graph, and other material -->
+
+				<!-- third row with Magnitude, Graph, and other material -->
 				<div class = "row">
 						<div class = "col-md-2"></div>
 
@@ -31,79 +62,150 @@
 								<!-- actual graph definition -->
 								<div id="mainbox" style="width:500px;height:500px"></div>
 						</div>
-						<div class = "col-md-4">
-							<div class = "container">
-								<div class = "row">
-									<div class = "col-md-1"></div>
-									<div class = "col-md-2">
-										<div class="dropdown">
-											<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter Type
-												<span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a href="#">FIR</a></li>
-												<li><a href="#">IIR</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class = "col-md-1"></div>
-								</div>
-								<div class = "row">
-									<div class = "col-md-1"></div>
-									<div class = "col-md-2">Design Method</div>
-									<div class = "col-md-1"></div>
-								</div>
-								<div class = "row">
-									<div class = "col-md-1"></div>
-									<div class = "col-md-2">
-										<div class="dropdown">
-											<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Window/Parks-McClellan
-												<span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a href="#">Window</a></li>
-												<li><a href="#">Parks-McClellan</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class = "col-md-1"></div>
-								</div>
-								<div class = "row">
-									<div class = "col-md-1"></div>
-									<div class = "col-md-2">
-										<div class="dropdown">
-											<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter Type
-												<span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a href="#" id="lowpass">Lowpass</a></li>
-												<li><a href="#" id="highpass">Highpass</a></li>
-												<li><a href="#" id="bandpass">Bandpass</a></li>
-												<li><a href="#" id="bandreject">Bandreject</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class = "col-md-1"></div>
-								</div>
-								<div class = "row">
-									<div class = "col-md-1">Fsamp</div>
-									<div class = "col-md-2">
-										<div class="form-group">
-											<input type="number" class="form-control" id="samp">
-										</div>
-									</div>
-									<div class = "col-md-1">Hz</div>
-								</div>
-								<div class = "row">
-									<div class = "col-md-1">Fcutoff</div>
-									<div class = "col-md-2">
-										<div class="form-group">
-											<input type="number" class="form-control" id="cutoff">
-										</div>
-									</div>
-									<div class = "col-md-1">Hz</div>
-								</div>
-							</div>
-						</div>
 
 				</div>
+
+				<!-- fourth row -->
+				<div class = "row" id = "all">
+					<nav class="Filter Technique">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">Filter Details</a>
+							</div>
+							<ul class="nav navbar-nav" id = "window1">
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" id = "highwindow">HighPass</a></li>
+										<li><a href="#" id = "lowwindow">Lowpass</a></li>
+										<li><a href="#" id = "bandpasswindow">Bandpass</a></li>
+										<li><a href="#" id = "bandrejectwindow">Bandreject</a></li>
+									</ul>
+								</li>
+								<li>
+									<b>Fsamp: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" id = "lowwindowsamp" class="form-control" value = 8000>
+								</li>
+								<li>
+									<b>Fcutoff: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" id = "lowwindowcutoff" class="form-control" value = 1000>
+								</li>
+								<li>
+									<b>Order: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" id = "lowwindoworder" class="form-control" value = 20>
+								</li>
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" id = "high">Rectangular</a></li>
+										<li><a href="#" id = "low">Bartlett</a></li>
+										<li><a href="#" id = "bandpass">Hamm</a></li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="nav navbar-nav" id = "parks1">
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" id = "high">HighPass</a></li>
+										<li><a href="#" id = "low1">Lowpass</a></li>
+										<li><a href="#" id = "bandpass">Bandpass</a></li>
+										<li><a href="#" id = "bandreject">Bandreject</a></li>
+									</ul>
+								</li>
+								<li>
+									<b>Fsamp: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li>
+									<b>Fcutoff: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li>
+									<b>Fstop: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" id = "high">Autoorder</a></li>
+										<li><a href="#" id = "low">Setorder</a></li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="nav navbar-nav" id = "IIRopen">
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" id = "butlow">Butterworth Lowpass</a></li>
+										<li><a href="#" id = "low1">Butterworth Highpass</a></li>
+										<li><a href="#" id = "bandpass">Butterworth Bandpass</a></li>
+										<li><a href="#" id = "bandreject">Butterworth Bandreject</a></li>
+									</ul>
+								</li>
+								<li>
+									<b>Fsamp: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li>
+									<b>Fpass: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li>
+									<b>Fstop: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li>
+									<b>Deltapass: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li>
+									<b>Deltastop: </b>
+								</li>
+								<li class="form-group">
+									<input type="number" class="form-control">
+								</li>
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" id = "high">Autoorder</a></li>
+										<li><a href="#" id = "low">Setorder</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+
+
+
+
 	</div>
 
 
