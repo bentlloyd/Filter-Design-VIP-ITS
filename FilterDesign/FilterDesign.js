@@ -24,7 +24,7 @@ function doIt() {
 
 function clearAll(board) {
     JXG.JSXGraph.freeBoard(board);
-    board = JXG.JSXGraph.initBoard('mainbox', {boundingbox:[0, 1.2,4000,-1], axis:true});
+    board = JXG.JSXGraph.initBoard('mainbox', {boundingbox:[0, 1.2,20,-1], axis:true});
     return board;
 }
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
     $('#window1').hide();
     $('#FIRopen').hide();
     $('#IIRopen').hide();
-    board = JXG.JSXGraph.initBoard('mainbox', {axis:true,boundingbox: [0, 1.2, 4000,-1]});
+    board = JXG.JSXGraph.initBoard('mainbox', {axis:true,boundingbox: [0, 1.5, Math.PI,-.5]});
 
 
     $('#FIR').on("click", function() {
@@ -56,47 +56,138 @@ $(document).ready(function() {
     $('#window').on("click", function() {
         $('#parks1').hide();
         $('#window1').show();
-        $('#highwindow').on("click", function() {
-            var cutoff = $('#lowwindowcutoff').val();
+        $('#Hannwindow').on("click", function() {
+            /*var cutoff = $('#lowwindowcutoff').val();
             var order = $('#lowwindoworder').val();
-            function f(x) {
-               return (x/cutoff)/(Math.sqrt(1 + Math.pow(x/cutoff, 2*order)));
-            }
-            plot(f);
-            $('#lowwindowcutoff').on('keyup', function () {
-                var cutoff = $('#lowwindowcutoff').val();
-                var order = $('#lowwindoworder').val();
-                function f(x) {
-                    return (x/cutoff)/(Math.sqrt(1 + Math.pow(x/cutoff, 2*order)));
+                board.removeObject(board.curve)
+                var out = 0;
+                var alpha = 10/2;
+                var plotData = [
+                  [],
+                  []
+                ];
+                for (i = 1; i < Math.PI; i = i + .01) {
+                    plotData[0][i] = i;
                 }
-                plot(f);
-            });
-            $('#lowwindoworder').on('keyup', function () {
-                var cutoff = $('#lowwindowcutoff').val();
-                var order = $('#lowwindoworder').val();
-                function f(x) {
-                    return (x/cutoff)/(Math.sqrt(1 + Math.pow(x/cutoff, 2*order)));
+                for (i = .01; i < Math.PI; i = i + .01) {
+                /*
+                    out = Math.PI*(i-alpha);
+                    console.log("i: " + i)
+                    console.log("out: " + out + " ");
+                    plotData[1][i] = Math.sin(1000*Math.PI*(i-alpha)/(Math.PI*(i-alpha)));
+                    console.log("plotdata: " + plotData[1][i]);
+                    plotData[1][i] = Math.sin(2*Math.PI*i)/(Math.PI*i)
+                    console.log("plotData: " + plotData[1][i])
                 }
-                plot(f);
-            });
-            $('#lowwindowsamp').on('keyup', function () {
+                board.curve = board.create('curve', plotData, {type:'plot'});*/
+                board.removeObject(board.curve);
                 var cutoff = $('#lowwindowcutoff').val();
                 var order = $('#lowwindoworder').val();
-                var samp = $('#lowwindowsamp').val();
-                if (samp > 2*cutoff) {
-                    board = JXG.JSXGraph.initBoard('mainbox', {axis:true,boundingbox: [0, 1.2, samp,-1]});
-                    function f(x) {
-                        return (x/cutoff)/(Math.sqrt(1 + Math.pow(x/cutoff, 2*order)));
+                var alpha = order/2;
+                var plotData = [
+                  [],
+                  []
+                ];
+                for (i = 0; i < order; i++) {
+                    plotData[0][i] = i;
+                }
+                for (i = 0; i < order; i++) {
+                    if (order % 2 == 0) {
+                        plotData[1][i] = Math.sin
                     }
-                    plot(f);
+                    plotData[1][i] = Math.sin(cutoff*Math.PI*(i - alpha))/(Math.PI*(i - alpha));
+                    console.log("plotData: " + plotData[1][i])
                 }
-            });
-        })
+                board.curve = board.create('curve', plotData, {type:'plot'});
+        });
+        $('#Rectangularwindow').on("click", function() {
+            board.removeObject(board.curve)
+            var cutoff = $('#lowwindowcutoff').val();
+            var order = $('#lowwindoworder').val();
+            var plotData = [
+              [],
+              []
+            ];
+            for (i = 0; i < order; i++) {
+                plotData[0][i] = i;
+            }
+            for (i = 0; i < order; i++) {
+                plotData[1][i] = 1;
+            }
+            board.curve = board.create('curve', plotData, {type:'plot'});
+        });
+        $('#Bartlettwindow').on("click", function() {
+            board.removeObject(board.curve);
+            var cutoff = $('#lowwindowcutoff').val();
+            var order = $('#lowwindoworder').val();
+            var rem = (order + 1) % 2;
+            if (rem == 0)
+            var plotData = [
+              [],
+              []
+            ];
+            for (i = 0; i < order; i++) {
+                plotData[0][i] = i;
+            }
+            for (i = 0; i < order; i++) {
+                plotData[1][i] = 1;
+            }
+            board.curve = board.create('curve', plotData, {type:'plot'});
+        });
+        $('#Hammwindow').on("click", function() {
+            board.removeObject(board.curve)
+            var cutoff = $('#lowwindowcutoff').val();
+            var order = $('#lowwindoworder').val();
+            var plotData = [
+              [],
+              []
+            ];
+            for (i = 0; i < order; i++) {
+                plotData[0][i] = i;
+            }
+            for (i = 0; i < order; i++) {
+                plotData[1][i] = .54 - .46*Math.cos((2*Math.PI*i)/order);
+            }
+            board.curve = board.create('curve', plotData, {type:'plot'});
+        });
+        $('#Blackmanwindow').on("click", function() {
+            board.removeObject(board.curve)
+            var cutoff = $('#lowwindowcutoff').val();
+            var order = $('#lowwindoworder').val();
+            var plotData = [
+              [],
+              []
+            ];
+            for (i = 0; i < order; i++) {
+                plotData[0][i] = i;
+            }
+            for (i = 0; i < order; i++) {
+                plotData[1][i] = .42 - .5*Math.cos((2*Math.PI*i)/order) + .08*Math.cos((4*Math.PI*i)/order);
+            }
+            board.curve = board.create('curve', plotData, {type:'plot'});
+        });
+        $('#Gaussianwindow').on("click", function() {
+            board.removeObject(board.curve)
+            var cutoff = $('#lowwindowcutoff').val();
+            var order = $('#lowwindoworder').val();
+            var plotData = [
+              [],
+              []
+            ];
+            for (i = 0; i < order; i++) {
+                plotData[0][i] = i;
+            }
+            for (i = 0; i < order; i++) {
+                plotData[1][i] = 1;
+            }
+            board.curve = board.create('curve', plotData, {type:'plot'});
+        });
         $('#lowwindow').on("click", function() {
+            board.removeObject(board.curve)
             var cutoff = $('#lowwindowcutoff').val();
             var order = $('#lowwindoworder').val();
             function f(x) {
-               return 1/Math.sqrt(1 + Math.pow(x/cutoff, 2*order));
+                return .5 - 0.5*Math.cos((2*Math.PI*x)/order);
             }
             plot(f);
             $('#lowwindowcutoff').on('keyup', function () {

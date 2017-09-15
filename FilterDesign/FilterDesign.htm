@@ -59,6 +59,12 @@
 						<div class = "col-md-2"></div>
 
 						<div class = "col-md-6">
+							<ul class="nav nav-tabs">
+								<li><a data-toggle="tab" href="#" id = "Impulseresponse">Impulse Response</a></li>
+								<li><a data-toggle="tab" href="#" id = "magresponse">Magnitude Response</a></li>
+								<li><a data-toggle="tab" href="#" id = "phaseresponse">Phase Response</a></li>
+								<li><a data-toggle="tab" href="#" id = "polezero">Pole-Zero</a></li>
+							</ul>
 								<!-- actual graph definition -->
 								<div id="mainbox" style="width:500px;height:500px"></div>
 						</div>
@@ -105,9 +111,12 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window
 										<span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">Rectangular</a></li>
-										<li><a href="#" id = "low">Bartlett</a></li>
-										<li><a href="#" id = "bandpass">Hamm</a></li>
+										<li><a href="#" id = "Rectangularwindow">Rectangular</a></li>
+										<li><a href="#" id = "Bartlettwindow">Bartlett</a></li>
+										<li><a href="#" id = "Hannwindow">Hann</a></li>
+										<li><a href="#" id = "Hammwindow">Hamm</a></li>
+										<li><a href="#" id = "Blackmanwindow">Blackman</a></li>
+										<li><a href="#" id = "Gaussianwindow">Gaussian</a></li>
 									</ul>
 								</li>
 							</ul>
