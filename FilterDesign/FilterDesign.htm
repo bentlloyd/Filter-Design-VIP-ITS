@@ -32,20 +32,43 @@
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#">Home</a></li>
 								<!-- FIR/IIR Dropdown -->
+                                
 								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">FIR/IIR
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">IIR/FIR
 										<span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li id><a href="#" id = "FIR">FIR</a></li>
-										<li><a href="#" id = "IIR">IIR</a></li>
+                                        <li>
+                                            <span>
+                                                <a href="#" id = "IIR">IIR </a>
+                                                <span id="iir_menu_option">&#10004</span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="#" id = "FIR">FIR </a>
+                                                    <span id="fir_menu_option">&#10004</span>
+                                            </span>
+                                        </li>
+										
 									</ul>
 								</li>
+                                <!-- Windows/Parks-McClellan Dropdown -->
 								<li class="dropdown" id = "FIRopen">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window/Parks
 										<span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="#" id = "window">Window</a></li>
-										<li><a href="#" id = "parks">Parks-McClellan</a></li>
+                                        <li>
+                                            <span>
+                                                <a href="#" id = "window">Window</a>
+                                                <span id="window_menu_option">&#10004</span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <a href="#" id = "parks">Parks-McClellan</a>
+                                                <span id="parks_mcclellan_menu_option">&#10004</span>
+                                            </span>
+                                        </li>
 									</ul>
 								</li>
 							</ul>

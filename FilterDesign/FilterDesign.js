@@ -35,27 +35,35 @@ $(document).ready(function() {
     $('#parks1').hide();
     $('#window1').hide();
     $('#FIRopen').hide();
-    $('#IIRopen').hide();
+    $('#IIRopen').show(); // Show IIR as default
+    $('#fir_menu_option').hide();
+    $("#parks_mcclellan_menu_option").hide(); // Window shows as default
     board = JXG.JSXGraph.initBoard('mainbox', {axis:true,boundingbox: [0, 1.5, Math.PI,-.5]});
 
 
     $('#FIR').on("click", function() {
         $('#FIRopen').show();
         $('#IIRopen').hide();
-        $('#window1').hide();
+        $('#window1').show();
         $('#parks1').hide();
+        $('#fir_menu_option').show();
+        $('#iir_menu_option').hide();
     })
     $('#IIR').on("click", function() {
         $('#IIRopen').show();
         $('#FIRopen').hide();
         $('#window1').hide();
         $('#parks1').hide();
+        $('#fir_menu_option').hide();
+        $('#iir_menu_option').show();
         $('#butlow').on("click", function() {
         })
     })
     $('#window').on("click", function() {
         $('#parks1').hide();
         $('#window1').show();
+        $("window_menu_option").show();
+        $("parks_mcclellan_menu_option").hide();
         $('#Hannwindow').on("click", function() {
             /*var cutoff = $('#lowwindowcutoff').val();
             var order = $('#lowwindoworder').val();
@@ -227,6 +235,8 @@ $(document).ready(function() {
     $('#parks').on("click", function() {
         $('#window1').hide();
         $('#parks1').show();
+        $("#window_menu_option").hide();
+        $("#parks_mcclellan_menu_option").show();
     })
     $('#IIRpress').on("click", function() {
         $('#window1').hide();
