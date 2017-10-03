@@ -51,6 +51,7 @@ $('#FIR').on("click", function() {
         $('#fir_menu_option').show();
         $('#iir_menu_option').hide();
     })
+
 $('#IIR').on("click", function() {
     $('#IIRopen').show();
     $('#FIRopen').hide();
@@ -506,6 +507,7 @@ $('#window').on("click", function() {
     })
     $('#bandrejectwindow').on("click", function() {
     })
+
 })
 $('#parks').on("click", function() {
     $('#window1').hide();
