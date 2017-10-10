@@ -83,11 +83,33 @@
 
 						<div class = "col-md-6">
 							<ul class="nav nav-tabs">
-								<li><a data-toggle="tab" href="#" id = "Impulseresponse">Impulse Response</a></li>
-								<li><a data-toggle="tab" href="#" id = "magresponse">Magnitude Response</a></li>
-								<li><a data-toggle="tab" href="#" id = "phaseresponse">Phase Response</a></li>
-								<li><a data-toggle="tab" href="#" id = "polezero">Pole-Zero</a></li>
+								<li><a href="#Impulseresponse" data-toggle="tab">Impulse Response</a></li>
+								<li><a href="#magresponse" data-toggle="tab">Magnitude Response</a></li>
+								<li><a href="#phaseresponse" data-toggle="tab">Phase Response</a></li>
+								<li><a href="#polezero" data-toggle="tab">Pole-Zero</a></li>
 							</ul>
+							<div class="tab-content" id="TabContent">
+								<div class="tab-pane fade" id="Impulseresponse">
+									<p>
+										Impulse Response
+									</p>
+								</div>
+								<div class="tab-pane fade" id="magresponse">
+									<p>
+										Magnitude Response
+									</p>
+								</div>
+								<div class="tab-pane fade" id="phaseresponse">
+									<p>
+										Phase Response
+									</p>
+								</div>
+								<div class="tab-pane fade" id="polezero">
+									<p>
+										Pole-Zero Plot
+									</p>
+								</div>
+							</div>
 								<!-- actual graph definition -->
 								<div id="mainbox" style="width:500px;height:500px"></div>
 						</div>
@@ -113,13 +135,13 @@
 									</ul>
 								</li>
 								<li>
-									<b>Fsamp: </b>
+									<b>Cutoff2: </b>
 								</li>
 								<li class="form-group">
-									<input type="number" id = "lowwindowsamp" class="form-control" value = 8000>
+									<input type="number" id = "lowwindowcutoff2" class="form-control" value = 8000>
 								</li>
 								<li>
-									<b>Fcutoff: </b>
+									<b>Cuttoff1: </b>
 								</li>
 								<li class="form-group">
 									<input type="number" id = "lowwindowcutoff" class="form-control" value = 1000>
@@ -148,8 +170,8 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
 										<span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">HighPass</a></li>
-										<li><a href="#" id = "low1">Lowpass</a></li>
+										<li><a href="#" id = "highpass">HighPass</a></li>
+										<li><a href="#" id = "lowpass">Lowpass</a></li>
 										<li><a href="#" id = "bandpass">Bandpass</a></li>
 										<li><a href="#" id = "bandreject">Bandreject</a></li>
 									</ul>
