@@ -232,24 +232,14 @@
                                 <li>
                                     <span>
                                         Filter Type
-                                        <select>
-                                            <option value="butterworth_lowpass" selected>Butterwoth Lowpass</option>
+                                        <select id="iir_filter_type_selector">
+                                            <option value="butterworth_lowpass" selected>Butterworth Lowpass</option>
                                             <option value="butterworth_highpass">Butterworth Highpass</option>
                                             <option value="butterworth_bandpass">Butterworth Bandpass</option>
-                                            <option value="bandreject">Butterworth Bandreject</option>
+                                            <option value="butterworth_bandreject">Butterworth Bandreject</option>
                                         </select>
                                     </span>
                                 </li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "butlow">Butterworth Lowpass</a></li>
-										<li><a href="#" id = "low1">Butterworth Highpass</a></li>
-										<li><a href="#" id = "bandpass">Butterworth Bandpass</a></li>
-										<li><a href="#" id = "bandreject">Butterworth Bandreject</a></li>
-									</ul>
-								</li>
 								<li>
 									<b>Fsamp: </b>
 								</li>
@@ -283,20 +273,12 @@
                                 <li>
                                     <span>
                                         Order Type
-                                        <select>
+                                        <select id="iir_order_type_selector">
                                             <option value="autoorder" selected>Autoorder</option>
-                                            <opiton value="setorder">Setorder</opiton>
+                                            <option value="setorder">Setorder</option>
                                         </select>
                                     </span>
                                 </li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">Autoorder</a></li>
-										<li><a href="#" id = "low">Setorder</a></li>
-									</ul>
-								</li>
 							</ul>
 						</div>
 					</nav>

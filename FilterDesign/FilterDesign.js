@@ -36,6 +36,7 @@ $(document).ready(function() {
     $('#window1').hide();
     $('#FIRopen').hide();
     $('#IIRopen').show(); // Show IIR as default
+    $("#windows_parks_mcclellan_span").hide(); // Show IIR as default
     $('#fir_menu_option').hide();
     $("#parks_mcclellan_menu_option").hide(); // Window shows as default
     board = JXG.JSXGraph.initBoard('mainbox', {axis:true,boundingbox: [0, 1.5, Math.PI,-.5]});
@@ -83,16 +84,61 @@ $("#fir_iir_selector").change(function() {
 
 $("#windows_parks_mcclellan_selector").change(function() {
     var value = $(this).val();
-    console.log(value);
     if (value === "window") {
-        alert("success");
         onWindowClick();
     } else if (value === "parks_mcclellan") {
         $('#window1').hide();
         $('#parks1').show();
     }
 });
+    
+$("#iir_filter_type_selector").change(function() {
+    var value = $(this).val();
+    
+    if (value === "butterworth_lowpass") {
+        onButterworthLowpassClick();
+    } else if (value === "butterworth_highpass") {
+        onButterworthHighpassClick();
+    } else if (value === "butterworth_bandpass") {
+        onButterworthBandpassClick();
+    } else if (value === "butterworth_bandreject") {
+        onButterworthBandrejectClick();
+    }
+});
+    
+$("#iir_order_type_selector").change(function () {
+   var value = $(this).val(); 
+    
+    if (value === "autoorder") {
+        onAutoOrderClick();
+    } else if (value === "setorder") {
+        onSetOrderClick();
+    }
+});
 
+function onAutoOrderClick() {
+    
+}
+    
+function onSetOrderClick() {
+    
+}
+    
+function onButterworthLowpassClick() {
+    
+}
+    
+function onButterworthHighpassClick() {
+    
+}
+    
+function onButterworthBandpassClick() {
+    
+}
+    
+function onButterworthBandrejectClick() {
+    
+}
 function onWindowClick() {
     $('#parks1').hide();
     $('#window1').show();
@@ -542,16 +588,18 @@ function onWindowClick() {
 
 $('#window').on("click", function() {
     onWindowClick();
-})
+});
 $('#parks').on("click", function() {
     $('#window1').hide();
     $('#parks1').show();
     $("#window_menu_option").hide();
     $("#parks_mcclellan_menu_option").show();
-})
+});
 $('#IIRpress').on("click", function() {
     $('#window1').hide();
     $('#parks1').hide();
     $('#IIR').show();
-})
+});
+    
+});
 
