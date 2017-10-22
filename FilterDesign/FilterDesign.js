@@ -50,7 +50,7 @@ $('#FIR').on("click", function() {
         $('#parks1').hide();
         $('#fir_menu_option').show();
         $('#iir_menu_option').hide();
-    })
+});
 
 $('#IIR').on("click", function() {
     $('#IIRopen').show();
@@ -62,11 +62,42 @@ $('#IIR').on("click", function() {
     $('#butlow').on("click", function() {
     })
 })
-$('#window').on("click", function() {
+;
+$("#fir_iir_selector").change(function() {
+    var value = $(this).val();
+    //alert(value);
+    if (value === "FIR") {
+        $('#FIRopen').show();
+        $('#IIRopen').hide();
+        $('#window1').show();
+        $('#parks1').hide();
+        $("#windows_parks_mcclellan_span").show();
+    } else if (value === "IIR") {
+        $('#IIRopen').show();
+        $('#FIRopen').hide();
+        $('#window1').hide();
+        $('#parks1').hide();
+        $("#windows_parks_mcclellan_span").hide();
+    }
+});
+
+$("#windows_parks_mcclellan_selector").change(function() {
+    var value = $(this).val();
+    console.log(value);
+    if (value === "window") {
+        alert("success");
+        onWindowClick();
+    } else if (value === "parks_mcclellan") {
+        $('#window1').hide();
+        $('#parks1').show();
+    }
+});
+
+function onWindowClick() {
     $('#parks1').hide();
     $('#window1').show();
-    $("window_menu_option").show();
-    $("parks_mcclellan_menu_option").hide();
+    //$("#window_menu_option").show();
+    //$("#parks_mcclellan_menu_option").hide();
     $('#Hannwindow').on("click", function() {
             //default state == lowpass
             JXG.JSXGraph.freeBoard(board);
@@ -507,7 +538,10 @@ $('#window').on("click", function() {
     })
     $('#bandrejectwindow').on("click", function() {
     })
+}
 
+$('#window').on("click", function() {
+    onWindowClick();
 })
 $('#parks').on("click", function() {
     $('#window1').hide();
@@ -520,3 +554,4 @@ $('#IIRpress').on("click", function() {
     $('#parks1').hide();
     $('#IIR').show();
 })
+

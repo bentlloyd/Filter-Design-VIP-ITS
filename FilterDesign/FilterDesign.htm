@@ -29,11 +29,36 @@
 							<div class="navbar-header">
 								<a class="navbar-brand" href="#">Filter Design</a>
 							</div>
+
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#">Home</a></li>
+
 								<!-- FIR/IIR Dropdown -->
-                                
-								<li class="dropdown">
+                                <li>
+                                    <span>
+                                        FIR/IIR
+                                        <select id="fir_iir_selector">
+                                            <option value="IIR" selected>IIR</option>
+                                            <option value="FIR">FIR</option>
+
+                                        </select>
+                                    </span>
+                                </li>
+
+                                <li>
+                                    <span id="windows_parks_mcclellan_span">
+                                        Windows/Parks-McClellan
+                                        <select id="windows_parks_mcclellan_selector">
+                                            <option value="window" selected>Window</option>
+                                            <option value="parks_mcclellan">Parks-McClellan</option>
+                                        </select>
+                                    </span>
+                                </li>
+
+
+								<!--<li class="dropdown">
+
+
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">IIR/FIR
 										<span class="caret"></span></a>
 									<ul class="dropdown-menu">
@@ -49,9 +74,9 @@
                                                     <span id="fir_menu_option">&#10004</span>
                                             </span>
                                         </li>
-										
+
 									</ul>
-								</li>
+								</li>  -->
                                 <!-- Windows/Parks-McClellan Dropdown -->
 								<li class="dropdown" id = "FIRopen">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window/Parks
@@ -204,6 +229,17 @@
 								</li>
 							</ul>
 							<ul class="nav navbar-nav" id = "IIRopen">
+                                <li>
+                                    <span>
+                                        Filter Type
+                                        <select>
+                                            <option value="butterworth_lowpass" selected>Butterwoth Lowpass</option>
+                                            <option value="butterworth_highpass">Butterworth Highpass</option>
+                                            <option value="butterworth_bandpass">Butterworth Bandpass</option>
+                                            <option value="bandreject">Butterworth Bandreject</option>
+                                        </select>
+                                    </span>
+                                </li>
 								<li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
 										<span class="caret"></span></a>
@@ -244,6 +280,15 @@
 								<li class="form-group">
 									<input type="number" class="form-control">
 								</li>
+                                <li>
+                                    <span>
+                                        Order Type
+                                        <select>
+                                            <option value="autoorder" selected>Autoorder</option>
+                                            <opiton value="setorder">Setorder</opiton>
+                                        </select>
+                                    </span>
+                                </li>
 								<li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
 										<span class="caret"></span></a>
