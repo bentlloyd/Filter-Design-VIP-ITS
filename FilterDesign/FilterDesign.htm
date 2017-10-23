@@ -54,48 +54,6 @@
                                         </select>
                                     </span>
                                 </li>
-
-
-								<!--<li class="dropdown">
-
-
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">IIR/FIR
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-                                        <li>
-                                            <span>
-                                                <a href="#" id = "IIR">IIR </a>
-                                                <span id="iir_menu_option">&#10004</span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <a href="#" id = "FIR">FIR </a>
-                                                    <span id="fir_menu_option">&#10004</span>
-                                            </span>
-                                        </li>
-
-									</ul>
-								</li>  -->
-                                <!-- Windows/Parks-McClellan Dropdown -->
-								<li class="dropdown" id = "FIRopen">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window/Parks
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-                                        <li>
-                                            <span>
-                                                <a href="#" id = "window">Window</a>
-                                                <span id="window_menu_option">&#10004</span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <a href="#" id = "parks">Parks-McClellan</a>
-                                                <span id="parks_mcclellan_menu_option">&#10004</span>
-                                            </span>
-                                        </li>
-									</ul>
-								</li>
 							</ul>
 						</div>
 					</nav>
@@ -149,16 +107,17 @@
 								<a class="navbar-brand" href="#">Filter Details</a>
 							</div>
 							<ul class="nav navbar-nav" id = "window1">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "highwindow">HighPass</a></li>
-										<li><a href="#" id = "lowwindow">Lowpass</a></li>
-										<li><a href="#" id = "bandpasswindow">Bandpass</a></li>
-										<li><a href="#" id = "bandrejectwindow">Bandreject</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Filter Type
+                                        <select id="fir_filter_type_selector">
+                                            <option value="highwindow" selected>HighPass</option>
+                                            <option value="lowwindow">Lowpass</option>
+                                            <option value="bandpasswindow">Bandpass</option>
+                                            <option value="bandrejectwindow">Bandreject</option>
+                                        </select>
+                                    </span>
+                                </li>
 								<li>
 									<b>Cutoff2: </b>
 								</li>
@@ -177,30 +136,34 @@
 								<li class="form-group">
 									<input type="number" id = "lowwindoworder" class="form-control" value = 20>
 								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "Rectangularwindow">Rectangular</a></li>
-										<li><a href="#" id = "Bartlettwindow">Bartlett</a></li>
-										<li><a href="#" id = "Hannwindow">Hann</a></li>
-										<li><a href="#" id = "Hammwindow">Hamm</a></li>
-										<li><a href="#" id = "Blackmanwindow">Blackman</a></li>
-										<li><a href="#" id = "Gaussianwindow">Gaussian</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Window
+                                        <select id="window_window_selector">
+                                            <option value="rectangular_window" selected>Rectangular</option>
+                                            <option value="bartlett_window">Bartlett</option>
+                                            <option value="hann_window">Hann</option>
+                                            <option value="hamm_window">Hamm</option>
+                                            <option value="blackman_window">Blackman</option>
+                                            <option value="gaussian_window">Gaussian</option>
+                                        </select>
+                                    </span>
+                                </li>
 							</ul>
 							<ul class="nav navbar-nav" id = "parks1">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "highpass">HighPass</a></li>
-										<li><a href="#" id = "lowpass">Lowpass</a></li>
-										<li><a href="#" id = "bandpass">Bandpass</a></li>
-										<li><a href="#" id = "bandreject">Bandreject</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Window
+                                        <select id="parks_window_selector">
+                                            <option value="rectangular_window" selected>Rectangular</option>
+                                            <option value="bartlett_window">Bartlett</option>
+                                            <option value="hann_window">Hann</option>
+                                            <option value="hamm_window">Hamm</option>
+                                            <option value="blackman_window">Blackman</option>
+                                            <option value="gaussian_window">Gaussian</option>
+                                        </select>
+                                    </span>
+                                </li>
 								<li>
 									<b>Fsamp: </b>
 								</li>
@@ -219,15 +182,17 @@
 								<li class="form-group">
 									<input type="number" class="form-control">
 								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">Autoorder</a></li>
-										<li><a href="#" id = "low">Setorder</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Order Type
+                                        <select id="parks_order_type_selector">
+                                            <option value="autoorder" selected>Autoorder</option>
+                                            <option value="setorder">Setorder</option>
+                                        </select>
+                                    </span>
+                                </li>
 							</ul>
+                            
 							<ul class="nav navbar-nav" id = "IIRopen">
                                 <li>
                                     <span>
