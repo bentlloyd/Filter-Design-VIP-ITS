@@ -29,25 +29,31 @@
 							<div class="navbar-header">
 								<a class="navbar-brand" href="#">Filter Design</a>
 							</div>
+
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#">Home</a></li>
+
 								<!-- FIR/IIR Dropdown -->
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">FIR/IIR
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li id><a href="#" id = "FIR">FIR</a></li>
-										<li><a href="#" id = "IIR">IIR</a></li>
-									</ul>
-								</li>
-								<li class="dropdown" id = "FIRopen">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window/Parks
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "window">Window</a></li>
-										<li><a href="#" id = "parks">Parks-McClellan</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        FIR/IIR
+                                        <select id="fir_iir_selector">
+                                            <option value="IIR" selected>IIR</option>
+                                            <option value="FIR">FIR</option>
+
+                                        </select>
+                                    </span>
+                                </li>
+
+                                <li>
+                                    <span id="windows_parks_mcclellan_span">
+                                        Windows/Parks-McClellan
+                                        <select id="windows_parks_mcclellan_selector">
+                                            <option value="window" selected>Window</option>
+                                            <option value="parks_mcclellan">Parks-McClellan</option>
+                                        </select>
+                                    </span>
+                                </li>
 							</ul>
 						</div>
 					</nav>
@@ -101,16 +107,17 @@
 								<a class="navbar-brand" href="#">Filter Details</a>
 							</div>
 							<ul class="nav navbar-nav" id = "window1">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "highwindow">HighPass</a></li>
-										<li><a href="#" id = "lowwindow">Lowpass</a></li>
-										<li><a href="#" id = "bandpasswindow">Bandpass</a></li>
-										<li><a href="#" id = "bandrejectwindow">Bandreject</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Filter Type
+                                        <select id="fir_filter_type_selector">
+                                            <option value="highwindow" selected>HighPass</option>
+                                            <option value="lowwindow">Lowpass</option>
+                                            <option value="bandpasswindow">Bandpass</option>
+                                            <option value="bandrejectwindow">Bandreject</option>
+                                        </select>
+                                    </span>
+                                </li>
 								<li>
 									<b>Cutoff2: </b>
 								</li>
@@ -129,30 +136,34 @@
 								<li class="form-group">
 									<input type="number" id = "lowwindoworder" class="form-control" value = 20>
 								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "Rectangularwindow">Rectangular</a></li>
-										<li><a href="#" id = "Bartlettwindow">Bartlett</a></li>
-										<li><a href="#" id = "Hannwindow">Hann</a></li>
-										<li><a href="#" id = "Hammwindow">Hamm</a></li>
-										<li><a href="#" id = "Blackmanwindow">Blackman</a></li>
-										<li><a href="#" id = "Gaussianwindow">Gaussian</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Window
+                                        <select id="window_window_selector">
+                                            <option value="rectangular_window" selected>Rectangular</option>
+                                            <option value="bartlett_window">Bartlett</option>
+                                            <option value="hann_window">Hann</option>
+                                            <option value="hamm_window">Hamm</option>
+                                            <option value="blackman_window">Blackman</option>
+                                            <option value="gaussian_window">Gaussian</option>
+                                        </select>
+                                    </span>
+                                </li>
 							</ul>
 							<ul class="nav navbar-nav" id = "parks1">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "highpass">HighPass</a></li>
-										<li><a href="#" id = "lowpass">Lowpass</a></li>
-										<li><a href="#" id = "bandpass">Bandpass</a></li>
-										<li><a href="#" id = "bandreject">Bandreject</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Window
+                                        <select id="parks_window_selector">
+                                            <option value="rectangular_window" selected>Rectangular</option>
+                                            <option value="bartlett_window">Bartlett</option>
+                                            <option value="hann_window">Hann</option>
+                                            <option value="hamm_window">Hamm</option>
+                                            <option value="blackman_window">Blackman</option>
+                                            <option value="gaussian_window">Gaussian</option>
+                                        </select>
+                                    </span>
+                                </li>
 								<li>
 									<b>Fsamp: </b>
 								</li>
@@ -171,26 +182,29 @@
 								<li class="form-group">
 									<input type="number" class="form-control">
 								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">Autoorder</a></li>
-										<li><a href="#" id = "low">Setorder</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Order Type
+                                        <select id="parks_order_type_selector">
+                                            <option value="auto_order" selected>Autoorder</option>
+                                            <option value="setorder">Setorder</option>
+                                        </select>
+                                    </span>
+                                </li>
 							</ul>
+                            
 							<ul class="nav navbar-nav" id = "IIRopen">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "butlow">Butterworth Lowpass</a></li>
-										<li><a href="#" id = "low1">Butterworth Highpass</a></li>
-										<li><a href="#" id = "bandpass">Butterworth Bandpass</a></li>
-										<li><a href="#" id = "bandreject">Butterworth Bandreject</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Filter Type
+                                        <select id="iir_filter_type_selector">
+                                            <option value="butterworth_lowpass" selected>Butterworth Lowpass</option>
+                                            <option value="butterworth_highpass">Butterworth Highpass</option>
+                                            <option value="butterworth_bandpass">Butterworth Bandpass</option>
+                                            <option value="butterworth_bandreject">Butterworth Bandreject</option>
+                                        </select>
+                                    </span>
+                                </li>
 								<li>
 									<b>Fsamp: </b>
 								</li>
@@ -221,14 +235,15 @@
 								<li class="form-group">
 									<input type="number" class="form-control">
 								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">Autoorder</a></li>
-										<li><a href="#" id = "low">Setorder</a></li>
-									</ul>
-								</li>
+                                <li>
+                                    <span>
+                                        Order Type
+                                        <select id="iir_order_type_selector">
+                                            <option value="autoorder" selected>Autoorder</option>
+                                            <option value="setorder">Setorder</option>
+                                        </select>
+                                    </span>
+                                </li>
 							</ul>
 						</div>
 					</nav>
