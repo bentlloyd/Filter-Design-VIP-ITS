@@ -60,193 +60,197 @@
 		</div>
 
 
-		<!-- third row with Magnitude, Graph, and other material -->
-		<div id="third_row" class = "row">
-				<div class = "col-md-2"></div>
+		<div id="graph_detail_container">
+			<!-- third row with Magnitude, Graph, and other material -->
+			<div id="third_row" class = "row">
+					<div class = "col-md-2"></div>
 
-				<div class = "col-md-6">
-					<ul class="nav nav-tabs">
-						<li><a href="#Impulseresponse" data-toggle="tab">Impulse Response</a></li>
-						<li><a href="#magresponse" data-toggle="tab">Magnitude Response</a></li>
-						<li><a href="#phaseresponse" data-toggle="tab">Phase Response</a></li>
-						<li><a href="#polezero" data-toggle="tab">Pole-Zero</a></li>
-					</ul>
-					<div class="tab-content" id="TabContent">
-						<div class="tab-pane fade" id="Impulseresponse">
-							<p>
-								Impulse Response
-							</p>
+					<div class = "col-md-6">
+						<ul class="nav nav-tabs">
+							<li><a href="#Impulseresponse" data-toggle="tab">Impulse Response</a></li>
+							<li><a href="#magresponse" data-toggle="tab">Magnitude Response</a></li>
+							<li><a href="#phaseresponse" data-toggle="tab">Phase Response</a></li>
+							<li><a href="#polezero" data-toggle="tab">Pole-Zero</a></li>
+						</ul>
+						<div class="tab-content" id="TabContent">
+							<div class="tab-pane fade" id="Impulseresponse">
+								<p>
+									Impulse Response
+								</p>
+							</div>
+							<div class="tab-pane fade" id="magresponse">
+								<p>
+									Magnitude Response
+								</p>
+							</div>
+							<div class="tab-pane fade" id="phaseresponse">
+								<p>
+									Phase Response
+								</p>
+							</div>
+							<div class="tab-pane fade" id="polezero">
+								<p>
+									Pole-Zero Plot
+								</p>
+							</div>
 						</div>
-						<div class="tab-pane fade" id="magresponse">
-							<p>
-								Magnitude Response
-							</p>
-						</div>
-						<div class="tab-pane fade" id="phaseresponse">
-							<p>
-								Phase Response
-							</p>
-						</div>
-						<div class="tab-pane fade" id="polezero">
-							<p>
-								Pole-Zero Plot
-							</p>
-						</div>
+							<!-- actual graph definition -->
+						<div id="mainbox"></div>
 					</div>
-						<!-- actual graph definition -->
-						<div id="mainbox" style="width:500px;height:500px"></div>
-				</div>
+						
 
-		</div>
 
-		<!-- fourth row -->
-		<div id="fourth_row" class = "row" id = "all">
-			<nav class="Filter Technique">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="#">Filter Details</a>
+			</div>
+
+			<!-- fourth row -->
+			<div id="fourth_row" class = "row" id = "all">
+				<nav class="Filter Technique">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#">Filter Details</a>
+						</div>
+						<ul class="nav navbar-nav" id = "window1">
+	                        <li>
+	                            <span>
+	                                Filter Type
+	                                <select id="fir_filter_type_selector">
+	                                    <option value="highwindow" selected>HighPass</option>
+	                                    <option value="lowwindow">Lowpass</option>
+	                                    <option value="bandpasswindow">Bandpass</option>
+	                                    <option value="bandrejectwindow">Bandreject</option>
+	                                </select>
+	                            </span>
+	                        </li>
+							<li>
+								<b>Cutoff2: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" id = "lowwindowcutoff2" class="form-control" value = 8000>
+							</li>
+							<li>
+								<b>Cuttoff1: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" id = "lowwindowcutoff" class="form-control" value = 1000>
+							</li>
+							<li>
+								<b>Order: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" id = "lowwindoworder" class="form-control" value = 20>
+							</li>
+	                        <li>
+	                            <span>
+	                                Window
+	                                <select id="window_window_selector">
+	                                	<option value="hann_window" selected>Hann</option>
+	                                    <option value="rectangular_window">Rectangular</option>
+	                                    <option value="bartlett_window">Bartlett</option>
+	                                    <option value="hamm_window">Hamm</option>
+	                                    <option value="blackman_window">Blackman</option>
+	                                    <option value="gaussian_window">Gaussian</option>
+	                                </select>
+	                            </span>
+	                        </li>
+						</ul>
+						<ul class="nav navbar-nav" id = "parks1">
+	                        <li>
+	                            <span>
+	                                Window
+	                                <select id="parks_window_selector">
+	                                    <option value="rectangular_window" selected>Rectangular</option>
+	                                    <option value="bartlett_window">Bartlett</option>
+	                                    <option value="hann_window">Hann</option>
+	                                    <option value="hamm_window">Hamm</option>
+	                                    <option value="blackman_window">Blackman</option>
+	                                    <option value="gaussian_window">Gaussian</option>
+	                                </select>
+	                            </span>
+	                        </li>
+							<li>
+								<b>Fsamp: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+							<li>
+								<b>Fcutoff: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+							<li>
+								<b>Fstop: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+	                        <li>
+	                            <span>
+	                                Order Type
+	                                <select id="parks_order_type_selector">
+	                                    <option value="auto_order" selected>Autoorder</option>
+	                                    <option value="setorder">Setorder</option>
+	                                </select>
+	                            </span>
+	                        </li>
+						</ul>
+	                    
+						<ul class="nav navbar-nav" id = "IIRopen">
+	                        <li>
+	                            <span>
+	                                Filter Type
+	                                <select id="iir_filter_type_selector">
+	                                    <option value="butterworth_lowpass" selected>Butterworth Lowpass</option>
+	                                    <option value="butterworth_highpass">Butterworth Highpass</option>
+	                                    <option value="butterworth_bandpass">Butterworth Bandpass</option>
+	                                    <option value="butterworth_bandreject">Butterworth Bandreject</option>
+	                                </select>
+	                            </span>
+	                        </li>
+							<li>
+								<b>Fsamp: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+							<li>
+								<b>Fpass: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+							<li>
+								<b>Fstop: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+							<li>
+								<b>Deltapass: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+							<li>
+								<b>Deltastop: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control">
+							</li>
+	                        <li>
+	                            <span>
+	                                Order Type
+	                                <select id="iir_order_type_selector">
+	                                    <option value="autoorder" selected>Autoorder</option>
+	                                    <option value="setorder">Setorder</option>
+	                                </select>
+	                            </span>
+	                        </li>
+						</ul>
 					</div>
-					<ul class="nav navbar-nav" id = "window1">
-                        <li>
-                            <span>
-                                Filter Type
-                                <select id="fir_filter_type_selector">
-                                    <option value="highwindow" selected>HighPass</option>
-                                    <option value="lowwindow">Lowpass</option>
-                                    <option value="bandpasswindow">Bandpass</option>
-                                    <option value="bandrejectwindow">Bandreject</option>
-                                </select>
-                            </span>
-                        </li>
-						<li>
-							<b>Cutoff2: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" id = "lowwindowcutoff2" class="form-control" value = 8000>
-						</li>
-						<li>
-							<b>Cuttoff1: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" id = "lowwindowcutoff" class="form-control" value = 1000>
-						</li>
-						<li>
-							<b>Order: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" id = "lowwindoworder" class="form-control" value = 20>
-						</li>
-                        <li>
-                            <span>
-                                Window
-                                <select id="window_window_selector">
-                                	<option value="hann_window" selected>Hann</option>
-                                    <option value="rectangular_window">Rectangular</option>
-                                    <option value="bartlett_window">Bartlett</option>
-                                    <option value="hamm_window">Hamm</option>
-                                    <option value="blackman_window">Blackman</option>
-                                    <option value="gaussian_window">Gaussian</option>
-                                </select>
-                            </span>
-                        </li>
-					</ul>
-					<ul class="nav navbar-nav" id = "parks1">
-                        <li>
-                            <span>
-                                Window
-                                <select id="parks_window_selector">
-                                    <option value="rectangular_window" selected>Rectangular</option>
-                                    <option value="bartlett_window">Bartlett</option>
-                                    <option value="hann_window">Hann</option>
-                                    <option value="hamm_window">Hamm</option>
-                                    <option value="blackman_window">Blackman</option>
-                                    <option value="gaussian_window">Gaussian</option>
-                                </select>
-                            </span>
-                        </li>
-						<li>
-							<b>Fsamp: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-						<li>
-							<b>Fcutoff: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-						<li>
-							<b>Fstop: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-                        <li>
-                            <span>
-                                Order Type
-                                <select id="parks_order_type_selector">
-                                    <option value="auto_order" selected>Autoorder</option>
-                                    <option value="setorder">Setorder</option>
-                                </select>
-                            </span>
-                        </li>
-					</ul>
-                    
-					<ul class="nav navbar-nav" id = "IIRopen">
-                        <li>
-                            <span>
-                                Filter Type
-                                <select id="iir_filter_type_selector">
-                                    <option value="butterworth_lowpass" selected>Butterworth Lowpass</option>
-                                    <option value="butterworth_highpass">Butterworth Highpass</option>
-                                    <option value="butterworth_bandpass">Butterworth Bandpass</option>
-                                    <option value="butterworth_bandreject">Butterworth Bandreject</option>
-                                </select>
-                            </span>
-                        </li>
-						<li>
-							<b>Fsamp: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-						<li>
-							<b>Fpass: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-						<li>
-							<b>Fstop: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-						<li>
-							<b>Deltapass: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-						<li>
-							<b>Deltastop: </b>
-						</li>
-						<li class="form-group">
-							<input type="number" class="form-control">
-						</li>
-                        <li>
-                            <span>
-                                Order Type
-                                <select id="iir_order_type_selector">
-                                    <option value="autoorder" selected>Autoorder</option>
-                                    <option value="setorder">Setorder</option>
-                                </select>
-                            </span>
-                        </li>
-					</ul>
-				</div>
-			</nav>
+				</nav>
+			</div>
 		</div>
 
 

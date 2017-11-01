@@ -1,8 +1,24 @@
-
-/*#third_row {
-	background-color: red;
+/*#graph_detail_container {
+	position: relative;
+	
 }
 
-#fourth_row {
-	background-color: blue;
+#graph_detail_container #third_row {
+	background-color: orange;
+	width: 600px;
+	position: fixed;
+	
+}
+
+#graph_detail_container #fourth_row {
+	background: green;
+	position: fixed;
+	width: 150px;
 }*/
+
+#mainbox {
+	/*background-color: blue; */
+	min-height: 500px;
+	min-width: 500px;
+	position: relative;
+}
