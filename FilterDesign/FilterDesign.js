@@ -255,14 +255,14 @@ function onButterworthBandrejectClick() {
 
 $(document).ready(function() {
 
+    $('#IIRopen').hide();
+    $('#window1').show();
     $('#parks1').hide();
-    $('#window1').hide();
-    $('#FIRopen').hide();
-    $('#IIRopen').show();
-    $('#windows_parks_mcclellan_span').hide();
+    $('#windows_parks_mcclellan_span').show();
 
 
     board = JXG.JSXGraph.initBoard('mainbox', {axis:true,boundingbox: [9.997, 1100, 10.003,-1000]});
+    onHannWindowClick();
 
     $('#fir_iir_selector').change(function() {
             onFIRIIRSelect($(this).val());
