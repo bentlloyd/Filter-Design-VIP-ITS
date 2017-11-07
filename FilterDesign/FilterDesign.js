@@ -174,7 +174,7 @@ function onBlackmanWindowClick() {
 }
 
 function onGaussianWindowClick() {
-    
+
     board.removeObject(board.curve)
     var cutoff = $('#lowwindowcutoff').val();
     var order = $('#lowwindoworder').val();
@@ -230,7 +230,7 @@ function onLowWindowClick() {
 }
 
 function onAutoOrderClick() {
-    
+
 }
 
 function onSetOrderClick()  {
@@ -238,17 +238,17 @@ function onSetOrderClick()  {
 }
 
 function onButterworthLowpassClick() {
-    
+
 }
-    
+
 function onButterworthHighpassClick() {
-    
+
 }
-    
+
 function onButterworthBandpassClick() {
-    
+
 }
-    
+
 function onButterworthBandrejectClick() {
 
 }
@@ -260,6 +260,10 @@ $(document).ready(function() {
     $('#parks1').hide();
     $('#windows_parks_mcclellan_span').show();
 
+    $('#Impulseresponse').on('click', function() {
+        alert("click");
+    })
+
 
     board = JXG.JSXGraph.initBoard('mainbox', {axis:true,boundingbox: [9.997, 1100, 10.003,-1000]});
     onHannWindowClick();
@@ -267,20 +271,20 @@ $(document).ready(function() {
     $('#fir_iir_selector').change(function() {
             onFIRIIRSelect($(this).val());
     });
-    
+
     $('#windows_parks_mcclellan_selector').change(function() {
         var value = $(this).val();
-        
+
         if (value === "window") {
             onWindowClick();
         } else if (value === "parks_mcclellan") {
             onParksMcClellanClick();
         }
     });
-    
+
     $('#parks_window_selector').change(function() {
         var value = $(this).val();
-        
+
         if (value === "rectangular_window") {
             onRectangularWindowClick();
         } else if (value === "bartlett_window") {
@@ -293,10 +297,10 @@ $(document).ready(function() {
             onGaussianWindowClick();
         }
     });
-    
+
     $('#window_window_selector').change(function() {
         var value = $(this).val();
-        
+
         if (value === "rectangular_window") {
             onRectangularWindowClick();
         } else if (value === "bartlett_window") {
@@ -309,7 +313,7 @@ $(document).ready(function() {
             onGaussianWindowClick();
         }
     });
-    
+
     $("#iir_filter_type_selector").change(function() {
         var value = $(this).val();
 
@@ -323,27 +327,27 @@ $(document).ready(function() {
             onButterworthBandrejectClick();
         }
     });
-    
+
     $('#parks_order_type_selector').change(function() {
         var value = $(this).val();
-        
+
         if (value === "auto_order") {
             onAutoOrderClick();
         } else if (value === "setorder") {
             onSetOrderClick();
         }
     });
-    
+
     $('#iir_order_type_selector').change(function() {
         var value = $(this).val();
-        
+
         if (value === "auto_order") {
             onAutoOrderClick();
         } else if (value === "setorder") {
             onSetOrderClick();
         }
     })
-    
+
     $('#parks').on("click", function() {
         $('#window1').hide();
         $('#parks1').show();
