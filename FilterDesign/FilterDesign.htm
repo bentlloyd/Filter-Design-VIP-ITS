@@ -88,7 +88,7 @@
 	                        <li>
 	                            <span>
 	                                Filter Type
-	                                <select id="fir_filter_type_selector">
+	                                <select id="window_filter_type_selector">
 	                                    <option value="highwindow" selected>HighPass</option>
 	                                    <option value="lowwindow">Lowpass</option>
 	                                    <option value="bandpasswindow">Bandpass</option>
@@ -97,13 +97,13 @@
 	                            </span>
 	                        </li>
 							<li>
-								<b>Cutoff2: </b>
+								<b>Fsamp (Hz): </b>
 							</li>
 							<li class="form-group">
-								<input type="number" id = "lowwindowcutoff2" class="form-control" value = 8000>
+								<input type="number" id = "lowwindow_fsamp" class="form-control" value = 8000>
 							</li>
 							<li>
-								<b>Cuttoff1: </b>
+								<b>Fcutoff (Hz): </b>
 							</li>
 							<li class="form-group">
 								<input type="number" id = "lowwindowcutoff" class="form-control" value = 1000>
@@ -112,7 +112,7 @@
 								<b>Order: </b>
 							</li>
 							<li class="form-group">
-								<input type="number" id = "lowwindoworder" class="form-control" value = 20>
+								<input type="number" id = "lowwindoworder" class="form-control" value = 10>
 							</li>
 	                        <li>
 	                            <span>
@@ -121,7 +121,7 @@
 	                                	<option value="hann_window" selected>Hann</option>
 	                                    <option value="rectangular_window">Rectangular</option>
 	                                    <option value="bartlett_window">Bartlett</option>
-	                                    <option value="hamm_window">Hamm</option>
+	                                    <option value="hamming_window">Hamming</option>
 	                                    <option value="blackman_window">Blackman</option>
 	                                    <option value="gaussian_window">Gaussian</option>
 	                                </select>
@@ -129,36 +129,34 @@
 	                        </li>
 						</ul>
 						<ul class="nav navbar-nav" id = "parks1">
-	                        <li>
-	                            <span>
-	                                Window
-	                                <select id="parks_window_selector">
-	                                    <option value="rectangular_window" selected>Rectangular</option>
-	                                    <option value="bartlett_window">Bartlett</option>
-	                                    <option value="hann_window">Hann</option>
-	                                    <option value="hamm_window">Hamm</option>
-	                                    <option value="blackman_window">Blackman</option>
-	                                    <option value="gaussian_window">Gaussian</option>
+	                        <li>	          
+                                <span>
+	                                Filter Type
+	                                <select id="parks_mcclellan_filter_type_selector">
+	                                    <option value="highwindow" selected>HighPass</option>
+	                                    <option value="lowwindow">Lowpass</option>
+	                                    <option value="bandpasswindow">Bandpass</option>
+	                                    <option value="bandrejectwindow">Bandreject</option>
 	                                </select>
 	                            </span>
 	                        </li>
 							<li>
-								<b>Fsamp: </b>
+								<b>Fsamp (Hz): </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=8000>
 							</li>
 							<li>
-								<b>Fcutoff: </b>
+								<b>Fpass (Hz): </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=1000>
 							</li>
 							<li>
-								<b>Fstop: </b>
+								<b>Fstop (Hz): </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=1500>
 							</li>
 	                        <li>
 	                            <span>
@@ -184,34 +182,34 @@
 	                            </span>
 	                        </li>
 							<li>
-								<b>Fsamp: </b>
+								<b>Fsamp (Hz): </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=8000>
 							</li>
 							<li>
-								<b>Fpass: </b>
+								<b>Fpass (Hz): </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=1000>
 							</li>
 							<li>
-								<b>Fstop: </b>
+								<b>Fstop (Hz): </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=1500>
 							</li>
 							<li>
 								<b>Deltapass: </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=0.04>
 							</li>
 							<li>
 								<b>Deltastop: </b>
 							</li>
 							<li class="form-group">
-								<input type="number" class="form-control">
+								<input type="number" class="form-control" value=0.04>
 							</li>
 	                        <li>
 	                            <span>

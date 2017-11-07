@@ -139,7 +139,7 @@ function onBartlettWindowClick() {
     board.curve = board.create('curve', plotData, {type:'plot'});
 }
 
-function onHammWindowClick() {
+function onHammingWindowClick() {
     board.removeObject(board.curve)
     var cutoff = $('#lowwindowcutoff').val();
     var order = $('#lowwindoworder').val();
@@ -279,22 +279,6 @@ $(document).ready(function() {
             onWindowClick();
         } else if (value === "parks_mcclellan") {
             onParksMcClellanClick();
-        }
-    });
-
-    $('#parks_window_selector').change(function() {
-        var value = $(this).val();
-
-        if (value === "rectangular_window") {
-            onRectangularWindowClick();
-        } else if (value === "bartlett_window") {
-            onBartlettWindowClick();
-        } else if (value === "hann_window") {
-            onHannWindowClick();
-        } else if (value === "blackman_window") {
-            onBlackmanWindowClick();
-        } else if (value === "gaussian_window") {
-            onGaussianWindowClick();
         }
     });
 
