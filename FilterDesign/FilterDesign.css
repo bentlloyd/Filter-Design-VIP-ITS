@@ -1,23 +1,14 @@
-/*#graph_detail_container {
-	position: relative;
-	
-}
-
 #graph_detail_container #third_row {
-	background-color: orange;
-	width: 600px;
-	position: fixed;
-	
+    float: left;
+	width: 75%;
 }
 
 #graph_detail_container #fourth_row {
-	background: green;
-	position: fixed;
-	width: 150px;
-}*/
+	float: right;
+	width: 25%;
+}
 
 #mainbox {
-	/*background-color: blue; */
 	min-height: 500px;
 	min-width: 500px;
 	position: relative;
