@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="FilterDesign.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
@@ -15,229 +16,220 @@
 <body>
 
 	<div class = "container">
-				<!-- first row with title and navbar select -->
-				<div class = "row">
-					<div class = "col-md-3"></div>
-					<div class = "col-md-6">Filter Design</div>
-					<div class = "col-md-3"></div>
-				</div>
+		<!-- first row with title and navbar select -->
+		<div class = "row">
+			<div class = "col-md-3"></div>
+			<div class = "col-md-6">Filter Design</div>
+			<div class = "col-md-3"></div>
+		</div>
 
-				<!-- second row with navbar -->
-				<div class = "row">
-					<nav class="Filter Technique">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								<a class="navbar-brand" href="#">Filter Design</a>
-							</div>
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">Home</a></li>
-								<!-- FIR/IIR Dropdown -->
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">FIR/IIR
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li id><a href="#" id = "FIR">FIR</a></li>
-										<li><a href="#" id = "IIR">IIR</a></li>
-									</ul>
-								</li>
-								<li class="dropdown" id = "FIRopen">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window/Parks
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "window">Window</a></li>
-										<li><a href="#" id = "parks">Parks-McClellan</a></li>
-									</ul>
-								</li>
-							</ul>
+		<!-- second row with navbar -->
+		<div class = "row">
+			<nav class="Filter Technique">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">Filter Design</a>
+					</div>
+
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+
+						<!-- FIR/IIR Dropdown -->
+                        <li>
+                            <span>
+                                FIR/IIR
+                                <select id="fir_iir_selector">
+                                	<option value="FIR" selected="">FIR</option>
+                                    <option value="IIR">IIR</option>
+                                </select>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span id="windows_parks_mcclellan_span">
+                                Windows/Parks-McClellan
+                                <select id="windows_parks_mcclellan_selector">
+                                    <option value="window" selected>Window</option>
+                                    <option value="parks_mcclellan">Parks-McClellan</option>
+                                </select>
+                            </span>
+                        </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+
+		<div id="graph_detail_container">
+			<!-- third row with Magnitude, Graph, and other material -->
+			<div id="third_row" class = "row">
+					<div class = "col-md-2"></div>
+
+					<div class = "col-md-6">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#Impulseresponse" data-toggle="tab">Impulse Response</a></li>
+							<li><a href="#magresponse" data-toggle="tab">Magnitude Response</a></li>
+							<li><a href="#phaseresponse" data-toggle="tab">Phase Response</a></li>
+							<li><a href="#polezero" data-toggle="tab">Pole-Zero</a></li>
+						</ul>
+							<!-- actual graph definition -->
+						<div id="mainbox"></div>
+					</div>
+			</div>
+
+			<!-- fourth row -->
+			<div id="fourth_row" class = "row" id = "all">
+				<nav class="Filter Technique">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#">Filter Details</a>
 						</div>
-					</nav>
-				</div>
+						<ul class="nav navbar-nav" id = "window1">
+	                        <li>
+	                            <span>
+	                                Filter Type
+	                                <select id="window_filter_type_selector">
+	                                    <option value="highwindow" selected>HighPass</option>
+	                                    <option value="lowwindow">Lowpass</option>
+	                                    <option value="bandpasswindow">Bandpass</option>
+	                                    <option value="bandrejectwindow">Bandreject</option>
+	                                </select>
+	                            </span>
+	                        </li>
+							<li>
+								<b>Fsamp (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" id = "lowwindow_fsamp" class="form-control" value = 8000>
+							</li>
+							<li>
+								<b>Fcutoff (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" id = "lowwindowcutoff" class="form-control" value = 1000>
+							</li>
+							<li>
+								<b>Order: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" id = "lowwindoworder" class="form-control" value = 10>
+							</li>
+	                        <li>
+	                            <span>
+	                                Window
+	                                <select id="window_window_selector">
+	                                	<option value="hann_window" selected>Hann</option>
+	                                    <option value="rectangular_window">Rectangular</option>
+	                                    <option value="bartlett_window">Bartlett</option>
+	                                    <option value="hamming_window">Hamming</option>
+	                                    <option value="blackman_window">Blackman</option>
+	                                    <option value="gaussian_window">Gaussian</option>
+	                                </select>
+	                            </span>
+	                        </li>
+						</ul>
+						<ul class="nav navbar-nav" id = "parks1">
+	                        <li>
+                                <span>
+	                                Filter Type
+	                                <select id="parks_mcclellan_filter_type_selector">
+	                                    <option value="highwindow" selected>HighPass</option>
+	                                    <option value="lowwindow">Lowpass</option>
+	                                    <option value="bandpasswindow">Bandpass</option>
+	                                    <option value="bandrejectwindow">Bandreject</option>
+	                                </select>
+	                            </span>
+	                        </li>
+							<li>
+								<b>Fsamp (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=8000>
+							</li>
+							<li>
+								<b>Fpass (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=1000>
+							</li>
+							<li>
+								<b>Fstop (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=1500>
+							</li>
+	                        <li>
+	                            <span>
+	                                Order Type
+	                                <select id="parks_order_type_selector">
+	                                    <option value="auto_order" selected>Autoorder</option>
+	                                    <option value="setorder">Setorder</option>
+	                                </select>
+	                            </span>
+	                        </li>
+						</ul>
 
-
-				<!-- third row with Magnitude, Graph, and other material -->
-				<div class = "row">
-						<div class = "col-md-2"></div>
-
-						<div class = "col-md-6">
-							<ul class="nav nav-tabs">
-								<li><a href="#Impulseresponse" data-toggle="tab">Impulse Response</a></li>
-								<li><a href="#magresponse" data-toggle="tab">Magnitude Response</a></li>
-								<li><a href="#phaseresponse" data-toggle="tab">Phase Response</a></li>
-								<li><a href="#polezero" data-toggle="tab">Pole-Zero</a></li>
-							</ul>
-							<div class="tab-content" id="TabContent">
-								<div class="tab-pane fade" id="Impulseresponse">
-									<p>
-										Impulse Response
-									</p>
-								</div>
-								<div class="tab-pane fade" id="magresponse">
-									<p>
-										Magnitude Response
-									</p>
-								</div>
-								<div class="tab-pane fade" id="phaseresponse">
-									<p>
-										Phase Response
-									</p>
-								</div>
-								<div class="tab-pane fade" id="polezero">
-									<p>
-										Pole-Zero Plot
-									</p>
-								</div>
-							</div>
-								<!-- actual graph definition -->
-								<div id="mainbox" style="width:500px;height:500px"></div>
-						</div>
-
-				</div>
-
-				<!-- fourth row -->
-				<div class = "row" id = "all">
-					<nav class="Filter Technique">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								<a class="navbar-brand" href="#">Filter Details</a>
-							</div>
-							<ul class="nav navbar-nav" id = "window1">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "highwindow">HighPass</a></li>
-										<li><a href="#" id = "lowwindow">Lowpass</a></li>
-										<li><a href="#" id = "bandpasswindow">Bandpass</a></li>
-										<li><a href="#" id = "bandrejectwindow">Bandreject</a></li>
-									</ul>
-								</li>
-								<li>
-									<b>Cutoff2: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" id = "lowwindowcutoff2" class="form-control" value = 8000>
-								</li>
-								<li>
-									<b>Cuttoff1: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" id = "lowwindowcutoff" class="form-control" value = 1000>
-								</li>
-								<li>
-									<b>Order: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" id = "lowwindoworder" class="form-control" value = 20>
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Window
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "Rectangularwindow">Rectangular</a></li>
-										<li><a href="#" id = "Bartlettwindow">Bartlett</a></li>
-										<li><a href="#" id = "Hannwindow">Hann</a></li>
-										<li><a href="#" id = "Hammwindow">Hamm</a></li>
-										<li><a href="#" id = "Blackmanwindow">Blackman</a></li>
-										<li><a href="#" id = "Gaussianwindow">Gaussian</a></li>
-									</ul>
-								</li>
-							</ul>
-							<ul class="nav navbar-nav" id = "parks1">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "highpass">HighPass</a></li>
-										<li><a href="#" id = "lowpass">Lowpass</a></li>
-										<li><a href="#" id = "bandpass">Bandpass</a></li>
-										<li><a href="#" id = "bandreject">Bandreject</a></li>
-									</ul>
-								</li>
-								<li>
-									<b>Fsamp: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li>
-									<b>Fcutoff: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li>
-									<b>Fstop: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">Autoorder</a></li>
-										<li><a href="#" id = "low">Setorder</a></li>
-									</ul>
-								</li>
-							</ul>
-							<ul class="nav navbar-nav" id = "IIRopen">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "butlow">Butterworth Lowpass</a></li>
-										<li><a href="#" id = "low1">Butterworth Highpass</a></li>
-										<li><a href="#" id = "bandpass">Butterworth Bandpass</a></li>
-										<li><a href="#" id = "bandreject">Butterworth Bandreject</a></li>
-									</ul>
-								</li>
-								<li>
-									<b>Fsamp: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li>
-									<b>Fpass: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li>
-									<b>Fstop: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li>
-									<b>Deltapass: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li>
-									<b>Deltastop: </b>
-								</li>
-								<li class="form-group">
-									<input type="number" class="form-control">
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Order Type
-										<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#" id = "high">Autoorder</a></li>
-										<li><a href="#" id = "low">Setorder</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</nav>
-				</div>
+						<ul class="nav navbar-nav" id = "IIRopen">
+	                        <li>
+	                            <span>
+	                                Filter Type
+	                                <select id="iir_filter_type_selector">
+	                                    <option value="butterworth_lowpass" selected>Butterworth Lowpass</option>
+	                                    <option value="butterworth_highpass">Butterworth Highpass</option>
+	                                    <option value="butterworth_bandpass">Butterworth Bandpass</option>
+	                                    <option value="butterworth_bandreject">Butterworth Bandreject</option>
+	                                </select>
+	                            </span>
+	                        </li>
+							<li>
+								<b>Fsamp (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=8000>
+							</li>
+							<li>
+								<b>Fpass (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=1000>
+							</li>
+							<li>
+								<b>Fstop (Hz): </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=1500>
+							</li>
+							<li>
+								<b>Deltapass: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=0.04>
+							</li>
+							<li>
+								<b>Deltastop: </b>
+							</li>
+							<li class="form-group">
+								<input type="number" class="form-control" value=0.04>
+							</li>
+	                        <li>
+	                            <span>
+	                                Order Type
+	                                <select id="iir_order_type_selector">
+	                                    <option value="autoorder" selected>Autoorder</option>
+	                                    <option value="setorder">Setorder</option>
+	                                </select>
+	                            </span>
+	                        </li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
 
 
 
 
-	</div>
+	</div> <!-- end container div -->
 
 
 
