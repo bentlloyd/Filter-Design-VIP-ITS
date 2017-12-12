@@ -1,0 +1,15 @@
+#graph_detail_container #third_row {
+    float: left;
+	width: 75%;
+}
+
+#graph_detail_container #fourth_row {
+	float: right;
+	width: 25%;
+}
+
+#mainbox {
+	min-height: 500px;
+	min-width: 500px;
+	position: relative;
+}
